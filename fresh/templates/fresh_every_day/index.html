@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>天天生鲜</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.mi n.js"></script>
+    <script type="text/javascript" src="/static/js/slide.js"></script>
+
+    <script>
+        $(function () {
+            
+
+            $('#welcome').click(function () {
+                $.ajax({
+                    //xmlRequest
+                    url:'./json/data.json',
+                    type:'get',
+                    dataType:'json',
+                    success:function (callBackData) {
+                        console.log(callBackData)
+                    },
+                    error:function () {
+                        alert('failed')
+                    }
+
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="login">
+        <div class="login-content">
+            <h2 class="lf" id="welcome">欢迎来到天天生鲜!</h2>
+            <div class="loginright rf">
+                <div class="logined lf">
+                    欢迎您:<a href="">张三</a>
+                </div>
+                <div class="unlogin lf">
+                    <a href="">登录</a>
+                    <span>|</span>
+                    <a href="">注册</a>
+                </div>
+                <div class="myorder">
+                    <span>|</span>
+                    <a href="">我的购物车</a>
+                    <span>|</span>
+                    <a href="">我的订单</a>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="search">
+        <div class="search-content">
+            <a href="" class="logo lf">
+                <img src="/static/imgs/logo.png" alt="logo" title="logo">
+            </a>
+            <div class="searchbar lf">
+                <form action="">
+                    <input type="text" placeholder="seacher" name="searchtext" id="search" class="searchtext lf">
+                    <input type="submit" value="search" class="searchbtn lf">
+                </form>
+            </div>
+            <div class="buycar">
+                <a href="">我的购物车</a>
+                <span>0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <div class="category-content">
+            <h3>全部商品分类</h3>
+
+            <ul class="homelist">
+                <li><a href="">首页</a></li>
+                <li><span>|</span></li>
+                <li><a href="">手机生鲜</a></li>
+                <li><span>|</span></li>
+                <li><a href="">抽奖</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <ul class="leftlist">
+                <li><a href="">新鲜水果</a></li>
+                <li><a href="">海鲜水产</a></li>
+                <li><a href="">猪牛羊肉</a></li>
+                <li><a href="">禽类蛋品</a></li>
+                <li><a href="">新鲜蔬菜</a></li>
+                <li><a href="">速冻食品</a></li>
+            </ul>
+            <div class="slidepic  ">
+                <ul class="slide_list">
+                    <li><a href=""><img src="/static/imgs/slide02.jpg" alt="slide"></a></li>
+                    <li><a href=""><img src="/static/imgs/slide.jpg" alt="slide"></a></li>
+                    <li><a href=""><img src="/static/imgs/slide03.jpg" alt="slide"></a></li>
+                    <li><a href=""><img src="/static/imgs/slide04.jpg" alt="slide"></a></li>
+
+                </ul>
+                
+                <div class="leftarrow"></div>
+                <div class="rightarrow"></div>
+                <ul class="points">
+                    <!-- <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li> -->
+                </ul>
+            </div>
+
+            <div class="ad">
+                <a href=""><img src="/static/imgs/ad1.jpg" alt="广告1"></a>
+                <a href=""><img src="/static/imgs/ad2.jpg" alt="广告2"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="foods">
+        <div class="foods-content">
+            <div class="title">
+                <p><span class="titlespan">新鲜水果</span> | 鲜芒 加州提子 亚马逊牛油果
+                    <a href=""><span class="more">更多. . .</span></a>
+                </p>
+
+            </div>
+            <div class="leftpic">
+                <a href=""><img src="/static/imgs/friut.jpg" alt="friut"></a>
+            </div>
+            <ul class="rightlist">
+                <li>
+
+                    <a href="">
+                        <h5>草莓</h5>
+                        <img src="/static/imgs/strawberry.png" alt="shrimip">
+                        <div>￥38</div>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="">
+                        <h5>泰国柠檬</h5>
+                        <img src="/static/imgs//lemon.png" alt="shrimip">
+                        <div>￥38.90</div>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="">
+                        <h5>维多利亚葡萄</h5>
+                        <img src="/static/imgs/grape.png" alt="shrimip">
+                        <div>￥38</div>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="">
+                        <h5>进口奇异果</h5>
+                        <img src="/static/imgs/lemon.png" alt="shrimip">
+                        <div>￥38.90</div>
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="foods">
+        <div class="foods-content">
+            <div class="title">
+                <p><span class="titlespan">海鲜水产</span> | 深海鳕鱼 帝王蟹
+                    <a href=""><span class="more">更多. . .</span></a>
+                </p>
+            </div>
+            <div class="leftpic">
+                <a><img src="/static/imgs/banner02.png" alt="friut"></a>
+            </div>
+            <ul class="rightlist">
+                <li>
+                    <h5>青岛野生海捕大青虾</h5>
+                    <img src="/static/imgs/shrimp1.png" alt="shrimip">
+                    <div>￥42</div>
+                </li>
+                <li>
+                    <h5>扇贝</h5>
+                    <img src="/static/imgs/scollop.png" alt="shrimip">
+                    <div>￥10</div>
+                </li>
+                <li>
+                    <h5>冷冻秋刀鱼</h5>
+                    <img src="/static/imgs/hairtail.png" alt="shrimip">
+                    <div>￥56</div>
+                </li>
+                <li>
+                    <h5>基围虾</h5>
+                    <img src="/static/imgs/shrimp.png" alt="shrimip">
+                    <div>￥26</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="foods">
+        <div class="foods-content">
+            <div class="title">
+                <p><span class="titlespan">猪牛羊肉</span> | 澳洲牛肉 乌克兰大白猪
+                    <a href=""><span class="more">更多. . .</span></a>
+                </p>
+            </div>
+            <div class="leftpic">
+                <a><img src="/static/imgs/banner03.jpg" alt="friut"></a>
+            </div>
+            <ul class="rightlist">
+                <li>
+                    <h5>万年豚有机土猪精</h5>
+                    <img src="/static/imgs/pot.png" alt="shrimip">
+                    <div>￥38</div>
+                </li>
+                <li>
+                    <h5>中粮安至选澳洲牛</h5>
+                    <img src="/static/imgs/beef.png" alt="shrimip">
+                    <div>￥43</div>
+                </li>
+                <li>
+                    <h5>大洋世家舟山半壳</h5>
+                    <img src="/static/imgs/mutton.png" alt="shrimip">
+                    <div>￥56</div>
+                </li>
+                <li>
+                    <h5>问鼎食神 巴沙鱼片 </h5>
+                    <img src="/static/imgs/fishpot.png" alt="shrimip">
+                    <div>￥26</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="foods">
+        <div class="foods-content">
+            <div class="title">
+                <p><span class="titlespan">禽类蛋品</span> | 包泥松花蛋 熟咸鸭蛋
+                    <a href=""><span class="more">更多. . .</span></a>
+                </p>
+            </div>
+            <div class="leftpic">
+                <a><img src="/static/imgs/banner04.jpg" alt="friut"></a>
+            </div>
+            <ul class="rightlist">
+                <li>
+                    <h5>OCEAN GALA冰岛</h5>
+                    <img src="/static/imgs/chicken.png" alt="shrimip">
+                    <div>￥38</div>
+                </li>
+                <li>
+                    <h5>大洋世家舟山鲳鱼</h5>
+                    <img src="/static/imgs/chinken1.png" alt="shrimip">
+                    <div>￥38</div>
+                </li>
+                <li>
+                    <h5>大洋世家舟山半壳</h5>
+                    <img src="/static/imgs/eggsofdong.png" alt="shrimip">
+                    <div>￥38</div>
+                </li>
+                <li>
+                    <h5>问鼎食神 巴沙鱼片 </h5>
+                    <img src="/static/imgs/eggsofdong1.png" alt="shrimip">
+                    <div>￥38</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="foods">
+        <div class="foods-content">
+            <div class="title">
+                <p><span class="titlespan">新鲜蔬菜</span> | 乳黄瓜 紫薯
+                    <a href=""><span class="more">更多. . .</span></a>
+                </p>
+            </div>
+            <div class="leftpic">
+                <a><img src="/static/imgs/banner05.jpg" alt="friut"></a>
+            </div>
+            <ul class="rightlist">
+                <li>
+                    <h5>OCEAN GALA冰岛</h5>
+                    <img src="/static/imgs/cucumber.png" alt="shrimip">
+                    <div>￥38</div>
+                </li>
+                <li>
+                    <h5>大洋世家舟山鲳鱼</h5>
+                    <img src="/static/imgs/tomato.png" alt="shrimip">
+                    <div>￥38</div>
+                </li>
+                <li>
+                    <h5>大洋世家舟山半壳</h5>
+                    <img src="/static/imgs/taro.png" alt="shrimip">
+                    <div>￥38</div>
+                </li>
+                <li>
+                    <h5>问鼎食神 巴沙鱼片</h5>
+                    <img src="/static/imgs/corn.png" alt="shrimip">
+                    <div>￥38</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="foods">
+        <div class="foods-content">
+            <div class="title">
+                <p><span class="titlespan">速冻食品</span> | 哈根达斯
+                    <a href=""><span class="more">更多. . .</span></a>
+                </p>
+            </div>
+            <div class="leftpic">
+                <a><img src="/static/imgs/banner06.jpg" alt="friut"></a>
+            </div>
+            <ul class="rightlist">
+                <li>
+                    <h5>OCEAN GALA冰岛</h5>
+                    <img src="/static/imgs/ice-cream1.png" alt="shrimip">
+                    <div>￥38</div>
+                </li>
+                <li>
+                    <h5>大洋世家舟山鲳鱼</h5>
+                    <img src="/static/imgs/ice-cream2-107.png" alt="shrimip">
+                    <div>￥38</div>
+                </li>
+                <li>
+                    <h5>大洋世家舟山半壳</h5>
+                    <img src="/static/imgs/ice-cream2.png" alt="shrimip">
+                    <div>￥38</div>
+                </li>
+                <li>
+                    <h5>问鼎食神 巴沙鱼片 </h5>
+                    <img src="/static/imgs/ice-cream4.png" alt="shrimip">
+                    <div>￥38</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="foot">
+        <div class="foot-content">
+            <div cl ass="title">
+            </div>
+            <p><a href="">关于我们</a> | <a href="">联系我们</a> | <a href="">招聘人才</a> | <a href="">友情链接</a></p>
+            <p>CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved</p>
+            <p>电话：010-****888 京ICP备*******8号</p>
+        </div>
+    </div>
+</body>
+
+</html>
