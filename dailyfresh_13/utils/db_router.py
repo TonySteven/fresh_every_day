@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class MasterSlaveDBRouter(object):
     """读写分离路由"""
 
