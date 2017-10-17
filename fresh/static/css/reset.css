@@ -1,51 +1,27 @@
+/* 把标签默认的间距设为0 */
+body,ul,ol,p,h1,h2,h3,h4,h5,h6,dl,dd,select,input,textarea,form{margin:0;padding:0}
 
-/* 1.样式重置 初始化 内间距和外边距 */
-*{
-    margin:0;
-     padding: 0;
- }
- 
- /* 2.去掉列表左侧的小圆点 */
- ul,ol{
-     list-style: none;
- }
- 
- /* 3.去掉下划线 */
- a{
-     text-decoration: none;
- }
- 
- /* 4.设置伪类  防止塌陷 和 清除浮动*/
- .clearfix:before,.clearfix:after{
-     content: "";
-     display: table;
- }
- .clearfix:after{
- 
-     clear: both;
- }
- .clearfix{
-     zoom:1;
- }
- 
- /* 5.设置浮动 */
- .lf{
-     float: left;
- }
- .rf{
-     float: right;
- }
- 
- 
- /* 6.标题标签 */
- h1,h2,h3,h4,h5,h6{
- 
-     font-size: 100%;
-     font-weight: normal;
- }
- 
- /* 7.文本框 去掉border 和 outline */
- input{
-     border: 0; 
-     outline: none;
- }
+/* 让h标签文字大小继承body的文字设置 */
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+
+/* 去掉列表默认的图标 */
+ul,ol{list-style:none;}
+
+/* 去掉em默认的斜体 */
+em{font-style: normal;}
+
+/* 去掉a标签默认的下划线 */
+a{text-decoration:none;}
+
+
+/* 去掉加链接时产生的框线 */
+img{border:0;}
+
+/* 清除浮动 */
+.clearfix:before,.clearfix:after{content:"";display:table}
+.clearfix:after{clear:both;}
+.clearfix{zoom:1}
+
+/* 浮动 */
+.fl{float:left}
+.fr{float:right}
