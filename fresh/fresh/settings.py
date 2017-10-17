@@ -10,7 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-import os
+import os,sys
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+# sys.path.insert(1,os.path.join(BASE_DIR,'apps'))
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'fresh_every_day.apps.FreshEveryDayConfig',
+    'goods',
+    'users',
+    'cart',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -78,7 +83,16 @@ WSGI_APPLICATION = 'fresh.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django',
+        'NAME': 'fresh',
+        'USER': 'root',
+        'PASSWORD': 'mysql',
+        'HOST':'localhost',
+        'PORT':'3306',
+
+    },
+    'slave': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'fresh',
         'USER': 'root',
         'PASSWORD': 'mysql',
         'HOST':'localhost',
@@ -87,7 +101,7 @@ DATABASES = {
     }
 }
 
-
+DATABASE_ROUTERS = ['path.to.AuthRouter', 'path.to.PrimaryReplicaRouter']
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -129,3 +143,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+AUTH_USER_MODEL = 'users.User'
