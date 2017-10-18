@@ -17,7 +17,7 @@ import os,sys
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
+# Quick-start develoippment settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -90,15 +90,15 @@ DATABASES = {
         'PORT':'3306',
 
     },
-    'slave': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fresh',
-        'USER': 'root',
-        'PASSWORD': 'mysql',
-        'HOST':'localhost',
-        'PORT':'3306',
-
-    }
+    # 'slave': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'fresh',
+    #     'USER': 'root',
+    #     'PASSWORD': 'mysql',
+    #     'HOST':'localhost',
+    #     'PORT':'3306',
+    #
+    # }
 }
 
 DATABASE_ROUTERS = ['path.to.AuthRouter', 'path.to.PrimaryReplicaRouter']
