@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models
 
+
 class BaseModel(models.Model):
-    create_time = models.DateTimeField(auto_now_add=True,verbose_name='create time')
-    update_time = models.DateTimeField(auto_now=True,verbose_name='update time')
+    """为模型类补充字段"""
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
+    update_time = models.DateTimeField(auto_now=True, verbose_name="更新时间")
 
     class Meta:
-        abstract = True
+        abstract = True  # 说明是抽象模型类

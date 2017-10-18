@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce',
     'users',  # 用户模块
     'goods',  # 商品模块
     'orders',  # 订单模块
@@ -64,7 +65,7 @@ ROOT_URLCONF = 'dailyfresh_13.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,20 +87,20 @@ WSGI_APPLICATION = 'dailyfresh_13.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '192.168.37.128',
+        # 'HOST': '192.168.1.106',
         'PORT': 3306,
         'USER': 'root',
         'PASSWORD': "mysql",
         'NAME': "fresh"
     },
-    'slave': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': '192.168.104.102',
-        'PORT': 3306,
-        'USER': 'root',
-        'PASSWORD': "mysql",
-        'NAME': "fresh"
-    },
+    # 'slave': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'HOST': '10.211.55.3',
+    #     'PORT': 3306,
+    #     'USER': 'root',
+    #     'PASSWORD': "mysql",
+    #     'NAME': "dailyfresh_13"
+    # },
 }
 # 读写分离路由
 DATABASE_ROUTERS = ["utils.db_router.MasterSlaveDBRouter"]
@@ -125,3 +126,40 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
+
+# Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'tonysteven1996@163.com'
+EMAIL_HOST_PASSWORD = 'jl960405'
+EMAIL_FROM = '天天生鲜<daily_fresh@163.com>'
+
+
+# Cache
+# http://django-redis-chs.readthedocs.io/zh_CN/latest/#cache-backend
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://10.211.55.5:6379/3",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+
+# Session
+# http://django-redis-chs.readthedocs.io/zh_CN/latest/#session-backend
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': 'advanced',
+    'width': 600,
+    'height': 400,
+}
