@@ -12,7 +12,7 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 2.7.12 virtualenv at Q:\myproject\env" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6.0 virtualenv at ~/.virtualenv/django_py3" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="dailyfresh" />
   </component>

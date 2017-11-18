@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from utils.models import BaseModel
@@ -34,5 +33,19 @@ class Address(BaseModel):
 
     class Meta:
         db_table = "df_address"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

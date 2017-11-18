@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Django settings for dailyfresh_13 project.
 
@@ -28,9 +27,10 @@ sys.path.insert(1, os.path.join(BASE_DIR, "apps"))
 SECRET_KEY = '$#to53w10fpot$t+s24%3xle8x*@s*1@uu5i=dc$@u%!z@j=)l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False  #
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -42,7 +42,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tinymce',
+    'tinymce',  # 富文本编辑器,
+    'haystack',  # 搜索框架
     'users',  # 用户模块
     'goods',  # 商品模块
     'orders',  # 订单模块
@@ -87,20 +88,20 @@ WSGI_APPLICATION = 'dailyfresh_13.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        # 'HOST': '192.168.1.106',
+        'HOST': '10.211.55.5',
         'PORT': 3306,
         'USER': 'root',
         'PASSWORD': "mysql",
-        'NAME': "fresh"
+        'NAME': "dailyfresh_13"
     },
-    # 'slave': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'HOST': '10.211.55.3',
-    #     'PORT': 3306,
-    #     'USER': 'root',
-    #     'PASSWORD': "mysql",
-    #     'NAME': "dailyfresh_13"
-    # },
+    'slave': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': '10.211.55.3',
+        'PORT': 3306,
+        'USER': 'root',
+        'PASSWORD': "mysql",
+        'NAME': "dailyfresh_13"
+    },
 }
 # 读写分离路由
 DATABASE_ROUTERS = ["utils.db_router.MasterSlaveDBRouter"]
@@ -111,9 +112,9 @@ AUTH_USER_MODEL = "users.User"
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -131,11 +132,11 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.163.com'
+EMAIL_HOST = 'smtp.126.com'
 EMAIL_PORT = 25
-EMAIL_HOST_USER = 'tonysteven1996@163.com'
-EMAIL_HOST_PASSWORD = 'jl960405'
-EMAIL_FROM = '天天生鲜<daily_fresh@163.com>'
+EMAIL_HOST_USER = 'daily_fresh@126.com'
+EMAIL_HOST_PASSWORD = 'ITCAST123'
+EMAIL_FROM = '天天生鲜<daily_fresh@126.com>'
 
 
 # Cache
@@ -158,8 +159,41 @@ CACHES = {
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
 
+
+# 登录的网址
+LOGIN_URL = '/users/login'
+
+# 修改django的默认文件存储方式
+DEFAULT_FILE_STORAGE = 'utils.fastdfs.storage.FastDFSStorage'
+
+# fastdfs服务器的ip地址
+FASTDFS_URL = "http://10.211.55.5:8888/"
+FASTDFS_CLIENT_CONF = os.path.join(BASE_DIR, "utils/fastdfs/client.conf")
+
+
+# tinymcy配置信息
 TINYMCE_DEFAULT_CONFIG = {
     'theme': 'advanced',
     'width': 600,
     'height': 400,
 }
+
+# haystack搜索框架的配置
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        #使用whoosh引擎
+        'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
+        #索引文件路径
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    }
+}
+
+#当添加、修改、删除数据时，自动生成索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+# 支付宝的网址
+ALIPAY_URL = "https://openapi.alipaydev.com/gateway.do"
+ALIPAY_APPID = "2016081600258081"
+
+# 收集静态资源的文件夹
+STATIC_ROOT = "/Users/delron/Desktop/static"
